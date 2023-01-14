@@ -8,6 +8,7 @@ const server = http.createServer(app);
 const PORT = 4000;
 const HOST = '0.0.0.0';
 
+app.use(express.json());
 app.use(express.static('uploads'));
 app.use(router);
 

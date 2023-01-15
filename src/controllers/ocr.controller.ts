@@ -9,6 +9,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
             data: data.data.text.replace(/\n/g, ' ')
         });
     } catch (error) {
-        return next(error);
+        return next(JSON.stringify(error));
     }
 }

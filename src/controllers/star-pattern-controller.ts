@@ -23,6 +23,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
             message: 'Pattern saved in text file'
         });
     } catch (error) {
-        return next(error);
+        return next(JSON.stringify(error));
     }
 }

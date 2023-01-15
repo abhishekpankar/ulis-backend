@@ -9,6 +9,8 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
         return res.send(decryptedData)
     } catch (error) {
-        return next(error);
+        return res.status(400).send({
+            message: 'Invalid Code'
+        });
     }
 }

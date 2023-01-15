@@ -3,6 +3,11 @@ import { NextFunction, Request, Response } from "express";
 export default (req: Request, res: Response, next: NextFunction) => {
     try {
         const { file } = req.body;
+        if (!file) {
+            res.status(400).send({
+                message: 'File is required'
+            })
+        }
         const supportedMimeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 
         if (!supportedMimeTypes.includes(file.mimetype)) {

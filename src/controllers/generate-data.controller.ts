@@ -17,7 +17,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
         const encryptedData = encrypt(data);
 
         const qrBuffer = await qrcode.toBuffer(encryptedData);
-        return res.contentType('png').send(qrBuffer)
+        return res.send('data:image/png;base64,' + qrBuffer.toString('base64'));
     } catch (error) {
         return next(error);
     }

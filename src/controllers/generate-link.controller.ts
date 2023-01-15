@@ -6,7 +6,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
         const link = `http://www.google.com/search=${req.body.search}`;
 
         const qrBuffer = await qrcode.toBuffer(link);
-        return res.contentType('png').send(qrBuffer)
+        return res.send('data:image/png;base64,' + qrBuffer.toString('base64'));
     } catch (error) {
         return next(error);
     }
